@@ -1,0 +1,28 @@
+# Node modules
+node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Env files (secrets, API keys, etc.)
+.env
+
+# Build and cache output (if you build/bundle your client-side assets)
+dist/
+build/
+.cache/
+
+# Coverage reports
+coverage/
+
+# Editor directories and settings
+.vscode/
+.idea/
