@@ -1,24 +1,13 @@
 const noteMap = {
-    "A": 0, "A#": 1, "Bb": 1, "B": 2, "C": 3, "C#": 4, "Db": 4, 
-    "D": 5, "D#": 6, "Eb": 6, "E": 7, "F": 8, "F#": 9, "Gb": 9, 
+    "A": 0, "A#": 1, "Bb": 1, "B": 2, "C": 3, "C#": 4, "Db": 4,
+    "D": 5, "D#": 6, "Eb": 6, "E": 7, "F": 8, "F#": 9, "Gb": 9,
     "G": 10, "G#": 11, "Ab": 11
-};
+}
 
 const positionMap = {
-    0: "A", 1: ["A#", "Bb"], 2: "B", 3: "C", 4: ["C#", "Db"], 5: "D", 
+    0: "A", 1: ["A#", "Bb"], 2: "B", 3: "C", 4: ["C#", "Db"], 5: "D",
     6: ["D#", "Eb"], 7: "E", 8: "F", 9: ["F#", "Gb"], 10: "G", 11: ["G#", "Ab"]
-};
-
-let originalNotes = ""; // Store the original input
-
-document.addEventListener("DOMContentLoaded", function () {
-    let notesTextarea = document.getElementById("notes");
-    originalNotes = notesTextarea.value; // Store initial value
-
-    document.getElementById("copyButton").addEventListener("click", copyToClipboard);
-    document.getElementById("transpose-button").addEventListener("click", transposeNotes);
-    document.getElementById("revert-button").addEventListener("click", revertToOriginal);
-});
+}
 
 function transpose(position, distance) {
     let newPosition = (position + distance) % 12;
@@ -26,53 +15,40 @@ function transpose(position, distance) {
     return newPosition;
 }
 
+
 function transposeNotes() {
-    let inputNotes = document.getElementById('notes');
-    let distance = parseInt(document.getElementById('distance').value);
-    let accidental = parseInt(document.getElementById('accidental').value);
+    let input = document.getElementById('input').value
+    let distance = parseInt(document.getElementById('distance').value)
+    let accidental = parseInt(document.getElementById('accidental').value)
+    let output = document.getElementById('output')
 
-    if (!inputNotes.value) {
-        inputNotes.value = "Please enter some notes.";
-        return;
-    }
+    notesArray = input.match(/(\s+)|(?<![A-Za-z0-9#b])([A-G](?:#|b)?)(?=(m)?(?![A-Za-z0-9#b]))|([^\w\s])|(\w+)/g);
+    newNotesArray = []
 
-    let notesArray = inputNotes.value.match(/([A-G](?:#|b)?)|[^A-G#b]+/g);
-    let transposedNotes = [];
+    // console.log(notesArray)
 
-    for (let note of notesArray) {
-        if (noteMap.hasOwnProperty(note)) {
-            let position = noteMap[note];
-            let newPosition = transpose(position, distance);
-            let newNote = positionMap[newPosition];
-            newNote = Array.isArray(newNote) ? (accidental === 1 ? newNote[0] : newNote[1]) : newNote;
-            transposedNotes.push(newNote);
-        } else {
-            transposedNotes.push(note);
+    for (let note of notesArray){
+        // if empty after trim it was all whitespace
+        if (note.trim() === "") {
+            newNotesArray.push(note)
+            continue;
         }
+        let position = noteMap[note]
+
+        if (position === undefined) {
+            newNotesArray.push(note)
+            continue
+        }
+
+        let newPosition = transpose(position, distance)
+        let newNote = positionMap[newPosition]
+        console.log(newNote)
+
+        if (Array.isArray(newNote)) {
+            newNote = accidental === 1 ? newNote[0] : newNote[1]
+        }
+        newNotesArray.push(newNote)
     }
-
-    inputNotes.value = transposedNotes.join(""); // Update the original textarea
-}
-
-function revertToOriginal() {
-    document.getElementById("notes").value = originalNotes;
-}
-
-// Copy to clipboard function
-function copyToClipboard() {
-    let inputNotes = document.getElementById("notes");
-
-    // Select the text inside the textarea
-    inputNotes.select();
-    inputNotes.setSelectionRange(0, 99999); // For mobile devices
-
-    // Copy to clipboard
-    document.execCommand("copy");
-
-    // Provide feedback to the user
-    let copyButton = document.getElementById("copyButton");
-    copyButton.textContent = "Copied!";
-    setTimeout(() => {
-        copyButton.textContent = "Copy";
-    }, 1500);
+    // console.log(newNotesArray)
+    output.value = newNotesArray.join("")
 }

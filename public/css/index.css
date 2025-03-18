@@ -2,7 +2,7 @@
 
 :root {
     --color-bg-primary: hsl(0, 0%, 100%);
-    --color-bg-secondary: hsl(0, 0%, 0%);
+    --color-bg-secondary: hsl(0, 0%, 9.8%);
     --color-bg-accent: hsl(0, 0%, 97%);
 
     --color-text-primary: hsl(0, 0%, 0%);
@@ -18,7 +18,7 @@
 }
 
 .darkmode {
-    --color-bg-primary: hsl(0, 0%, 0%);
+    --color-bg-primary: hsl(0, 0%, 4.1%);
     --color-bg-secondary: hsl(0, 0%, 90%);
     --color-bg-accent: hsl(0, 0%, 15%);
 
@@ -34,6 +34,10 @@
 * {
     margin: 0;
     padding: 0;
+}
+
+*::before, *::after {
+    box-sizing: border-box;
 }
 
 body {

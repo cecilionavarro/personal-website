@@ -331,13 +331,14 @@
         <div class="container">
             <h1 class="title">Interactive</h1>
             <div class="card">
-                <textarea id="notes" placeholder="Enter notes here... C D E F# G"></textarea>
+                <textarea id="input" placeholder="Enter notes here... C D E F#"></textarea>
 
                 <div class="input">
                     <div>
                         <label for="distance">Transpose (Half Steps -12 to +12):</label>
                         <input type="number" id="distance" min="-12" max="12" value="0">
                     </div>
+                    
                     <div>
                         <label for="accidental">Sharp (#) or Flat (b):</label>
                         <select id="accidental">
@@ -354,6 +355,8 @@
                         <button id="copyButton">Copy</button>
                     </div>
                 </div>
+
+                <textarea id="output" readonly placeholder="Transposed notes will appear here... D E F G"></textarea>
             </div>
         </div>
     </section>
