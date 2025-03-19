@@ -334,11 +334,14 @@
                 <textarea id="input" placeholder="Enter notes here... C D E F#"></textarea>
 
                 <div class="input">
-                    <div>
-                        <label for="distance">Transpose (Half Steps -12 to +12):</label>
-                        <input type="number" id="distance" min="-12" max="12" value="0">
+                    <div class="slider">
+                        <div class="slider-title">
+                            <label for="distance">Transposition Interval:</label>
+                            <span id="sliderValue">0</span>
+                        </div>
+                        <input type="range" id="distance" min="-12" max="12" value="0">
                     </div>
-                    
+
                     <div>
                         <label for="accidental">Sharp (#) or Flat (b):</label>
                         <select id="accidental">
@@ -348,13 +351,11 @@
                     </div>
                 </div>
 
-                <div class="buttons">
-                    <button id="transpose-button" onclick="transposeNotes()">Transpose</button>
-
+                <!-- <div class="buttons">
                     <div class="copy">
                         <button id="copyButton">Copy</button>
                     </div>
-                </div>
+                </div> -->
 
                 <textarea id="output" readonly placeholder="Transposed notes will appear here... D E F G"></textarea>
             </div>

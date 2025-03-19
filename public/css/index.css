@@ -361,13 +361,22 @@ header a:hover {
     margin-bottom: .5rem;
 }
 
-.interactive .input div {
+.interactive .slider {
+    display: flex;
+    flex-direction: column;
+}
+
+.interactive .slider-title {
     display: flex;
     justify-content: space-between;
 }
 
 .interactive label {
     color: var(--color-text-primary);
+}
+
+.interactive #distance {
+    width: 100;
 }
 
 .interactive .buttons {
