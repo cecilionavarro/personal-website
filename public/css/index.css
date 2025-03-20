@@ -386,10 +386,35 @@ header a:hover {
     color: var(--color-text-secondary);
 }
 
+.interactive .slider {
+    position: relative;
+    width: 100%;
+}
+
 .interactive #sliderFill {
-    width: 100px;
-    height: 2px;
-    background-color: red;
+    border-radius: 100rem;
+    position: absolute;
+    left: 50%;
+    bottom: -.12rem;
+    transform: translateY(-50%);
+    height: 6px;
+    background-color: black;
+    width: 0; /* Starts empty and fills dynamically */
+    z-index: 1; /* Lower than slider thumb */
+}
+
+
+/* Customize the slider thumb */
+.interactive #distance::-webkit-slider-thumb {
+    position: relative;
+    z-index: 3; /* Ensures it's above everything */
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    appearance: none;
 }
 
 .interactive #distance {
