@@ -386,6 +386,12 @@ header a:hover {
     color: var(--color-text-secondary);
 }
 
+.interactive #sliderFill {
+    width: 100px;
+    height: 2px;
+    background-color: red;
+}
+
 .interactive #distance {
     all: unset;
     background-color: var(--color-slider-secondary);

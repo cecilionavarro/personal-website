@@ -333,21 +333,22 @@
             <div class="card">
                 <textarea id="input" placeholder="Enter notes here... C D E F#"></textarea>
 
-                    <div class="slider">
-                        <div class="slider-title">
-                            <label for="distance">Transposition Interval:</label>
-                            <span id="sliderValue">0</span>
-                        </div>
-                        <input type="range" id="distance" min="-12" max="12" value="0">
+                <div class="slider">
+                    <div class="slider-title">
+                        <label for="distance">Transposition Interval:</label>
+                        <span id="sliderValue">0</span>
                     </div>
+                    <div id="sliderFill"></div>
+                    <input type="range" id="distance" min="-12" max="12" value="0">
+                </div>
 
-                    <div class="dropdown">
-                        <label for="accidental">Sharp (#) or Flat (b):</label>
-                        <select id="accidental">
-                            <option value="1">Sharp (#)</option>
-                            <option value="2">Flat (b)</option>
-                        </select>
-                    </div>
+                <div class="dropdown">
+                    <label for="accidental">Sharp (#) or Flat (b):</label>
+                    <select id="accidental">
+                        <option value="1">Sharp (#)</option>
+                        <option value="2">Flat (b)</option>
+                    </select>
+                </div>
 
                 <textarea id="output" readonly placeholder="Transposed notes will appear here... D E F G"></textarea>
             </div>

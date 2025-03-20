@@ -53,15 +53,26 @@ function transposeNotes() {
     output.value = newNotesArray.join("")
 }
 
-let distance = document.getElementById("distance")
-let sliderValue = document.getElementById("sliderValue")
-let accidental = document.getElementById("accidental")
+document.addEventListener("DOMContentLoaded", function() {
+    let distance = document.getElementById("distance");
+    let sliderValue = document.getElementById("sliderValue");
+    let accidental = document.getElementById("accidental");
+    const sliderFill = document.getElementById("sliderFill");
 
-distance.addEventListener("input", function() {
-    sliderValue.textContent = this.value
-    transposeNotes()
-})
+    distance.addEventListener("input", function() {
+        sliderValue.textContent = this.value;
+
+        let min = parseInt(distance.min);
+        let max = parseInt(distance.max);
+        let percentage = ((this.value - min) / (max - min)) * 100;
+
+        sliderFill.style.width = percentage + "%";
+    });
+});
+
 
 accidental.addEventListener("change", function() {
     transposeNotes()
 })
+
+
