@@ -3,7 +3,9 @@ This is my personal website showcasing my projects and expanding upon my resume.
 
 ## Live Demo
 **Link to project:** [cecilionavarro.com](https://cecilionavarro.com)
+
 ![Personal Website](public/images/github.png)
+
 ## How It's Made:
 **Tech Used**: HTML, CSS, JavaScript, Node, Express
 
