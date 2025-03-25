@@ -23,15 +23,13 @@ Favicons are also heavily cached so I had to find and delete my favicon folder o
 **Dependancies:** Express, Nodemon
 
 On one terminal:
-<pre>
-```
+
+```bash
 npm run dev
 ```
-</pre>
 
 On a second terminal:
-<pre>
-```
+
+```bash
 browser-sync start --proxy "localhost:3000" --files "public/**/*.*, views/**/*.*, routes/**/*.js, server.js"
 ```
-</pre>
