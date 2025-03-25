@@ -14,20 +14,24 @@ I wrote the algorithm from scratch in C++ this was then translated to JavaScript
 ## Optimizations:  
 The UI for the transcribe feature was modified to go from the original C++ to a slider and toggle. This made for easy searching of the desired key instead of the slower guess and check.
 
-## Lessons Learned
+## Lessons Learned:
 I learned how to access and set preferences to localStorage in making a dark mode.
 
 Favicons are also heavily cached so I had to find and delete my favicon folder on my local machine which gave me a small issue when trying to switch it out.
 
-## Getting Started
+## Getting Started:
 **Dependancies:** Express, Nodemon
 
 On one terminal:
 <pre>
+```
 npm run dev
+```
 </pre>
 
 On a second terminal:
 <pre>
+```
 browser-sync start --proxy "localhost:3000" --files "public/**/*.*, views/**/*.*, routes/**/*.js, server.js"
+```
 </pre>
