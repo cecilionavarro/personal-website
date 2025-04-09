@@ -6,7 +6,7 @@ const enableDarkmode = () => {
     document.body.classList.add('darkmode')
     localStorage.setItem('darkmode', "active")
 
-    if (themeColorMeta) themeColorMeta.setAttribute("content", "#000000");
+    if (themeColorMeta) themeColorMeta.setAttribute("content", "#0A0A0A");
 }
 
 const disableDarkmode = () => {

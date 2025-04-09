@@ -27,7 +27,7 @@ function transposeNotes() {
 
     // console.log(notesArray)
 
-    for (let note of notesArray){
+    for (let note of notesArray) {
         // if empty after trim it was all whitespace
         if (note.trim() === "") {
             newNotesArray.push(note)
@@ -57,12 +57,16 @@ let distance = document.getElementById("distance")
 let sliderValue = document.getElementById("sliderValue")
 let accidental = document.getElementById("accidental")
 
-distance.addEventListener("input", function() {
+distance.addEventListener("input", function () {
     sliderValue.textContent = this.value
     transposeNotes()
 })
 
-accidental.addEventListener("change", function() {
+accidental.addEventListener("change", function () {
     transposeNotes()
 })
 
+// prevents double click
+document.addEventListener("dblclick", (e) => {
+    e.preventDefault()
+}, { passive: false})
