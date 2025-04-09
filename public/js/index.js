@@ -65,3 +65,4 @@ distance.addEventListener("input", function() {
 accidental.addEventListener("change", function() {
     transposeNotes()
 })
+
