@@ -52,13 +52,17 @@ function transposeNotes() {
     // console.log(newNotesArray)
     output.value = newNotesArray.join("")
 }
-
+let input = document.getElementById("input")
 let distance = document.getElementById("distance")
 let sliderValue = document.getElementById("sliderValue")
 let accidental = document.getElementById("accidental")
 
 distance.addEventListener("input", function () {
     sliderValue.textContent = this.value
+    transposeNotes()
+})
+
+input.addEventListener("input", () => {
     transposeNotes()
 })
 
